@@ -12,7 +12,9 @@
 	} from 'flowbite-svelte';
 
 	let { data } = $props();
+
 	let pupils = $derived(data.pupils);
+	let staff = $derived(data.staff);
 
 	const school = data.school[0];
 </script>
@@ -25,22 +27,48 @@
 	<p><span class="font-bold">Position:</span> Web Developer</p>
 	<p><span class="font-bold">Attendance:</span> 98.3%</p>
 
-	<Table class="mt-10">
-		<TableHead class="bg-slate-700 text-white">
-			<TableHeadCell>Surname</TableHeadCell>
-			<TableHeadCell>First Name</TableHeadCell>
-			<TableHeadCell>Middle Name(s)</TableHeadCell>
-			<TableHeadCell>Current Year</TableHeadCell>
-		</TableHead>
-		<TableBody tableBodyClass="divide-y">
-			{#each pupils as pupil}
-				<TableBodyRow>
-					<TableBodyCell>{pupil.surname}</TableBodyCell>
-					<TableBodyCell>{pupil.firstName}</TableBodyCell>
-					<TableBodyCell>{pupil.middleNames}</TableBodyCell>
-					<TableBodyCell>{pupil.currentYear}</TableBodyCell>
-				</TableBodyRow>
-			{/each}
-		</TableBody>
-	</Table>
+	<div class="mt-16 flex justify-between gap-10">
+		<div class="w-1/2">
+			<h2 class="text-xl font-bold">Pupils</h2>
+			<Table class="mt-10">
+				<TableHead class="bg-slate-700 text-white">
+					<TableHeadCell>Surname</TableHeadCell>
+					<TableHeadCell>First Name</TableHeadCell>
+					<TableHeadCell>Middle Name(s)</TableHeadCell>
+					<TableHeadCell>Current Year</TableHeadCell>
+				</TableHead>
+				<TableBody tableBodyClass="divide-y">
+					{#each pupils as pupil}
+						<TableBodyRow>
+							<TableBodyCell>{pupil.surname}</TableBodyCell>
+							<TableBodyCell>{pupil.firstName}</TableBodyCell>
+							<TableBodyCell>{pupil.middleNames}</TableBodyCell>
+							<TableBodyCell>{pupil.currentYear}</TableBodyCell>
+						</TableBodyRow>
+					{/each}
+				</TableBody>
+			</Table>
+		</div>
+		<div class="w-1/2">
+			<h2 class="text-xl font-bold">Staff</h2>
+			<Table class="mt-10">
+				<TableHead class="bg-slate-700 text-white">
+					<TableHeadCell>Surname</TableHeadCell>
+					<TableHeadCell>First Name</TableHeadCell>
+					<TableHeadCell>Middle Name(s)</TableHeadCell>
+					<TableHeadCell>Category</TableHeadCell>
+				</TableHead>
+				<TableBody tableBodyClass="divide-y">
+					{#each staff as staff}
+						<TableBodyRow>
+							<TableBodyCell>{staff.surname}</TableBodyCell>
+							<TableBodyCell>{staff.firstName}</TableBodyCell>
+							<TableBodyCell>{staff.middleNames}</TableBodyCell>
+							<TableBodyCell>{staff.category}</TableBodyCell>
+						</TableBodyRow>
+					{/each}
+				</TableBody>
+			</Table>
+		</div>
+	</div>
 </div>
