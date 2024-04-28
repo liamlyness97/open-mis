@@ -15,6 +15,13 @@
       "when": 1714218111049,
       "tag": "0001_melted_morlun",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1714342098272,
+      "tag": "0002_brief_azazel",
+      "breakpoints": true
     }
   ]
 }
